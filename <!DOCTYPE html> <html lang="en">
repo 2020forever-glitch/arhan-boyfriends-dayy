@@ -9,10 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -27,22 +26,22 @@
       background: #0d0b0b;
       color: #eee7dc;
       font-family: "DM Sans", sans-serif;
+      font-weight: 300;
       overflow-x: hidden;
     }
-
-    /* subtle film grain */
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.055;
+      opacity: 0.07;
       z-index: 100;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
     }
 
-    section {
+    .page {
       width: 100%;
     }
 
@@ -51,296 +50,218 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 25px;
+      padding: 40px 8vw;
+      position: relative;
     }
 
     .tiny {
       font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: #9e8980;
-      margin-bottom: 28px;
+      color: #9d8980;
+      margin-bottom: 25px;
     }
 
-    .hero h1 {
+    h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(65px, 18vw, 150px);
-      line-height: 0.8;
-      font-weight: 500;
+      font-size: clamp(70px, 18vw, 180px);
+      line-height: 0.78;
+      font-weight: 400;
       letter-spacing: -5px;
     }
 
-    .hero p {
+    .hero-sub {
+      margin-top: 35px;
+      max-width: 420px;
       font-family: "Cormorant Garamond", serif;
       font-size: 25px;
-      font-style: italic;
-      color: #bca79d;
-      margin-top: 35px;
-    }
-
-    .scroll {
-      margin-top: 80px;
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #806e67;
-    }
-
-    .scroll span {
-      display: block;
-      margin-top: 12px;
-      font-size: 18px;
-    }
-
-    /* letter */
-
-    .letter {
-      max-width: 720px;
-      margin: auto;
-      padding: 120px 28px;
+      line-height: 1.3;
+      color: #bcaea5;
     }
 
     .date {
+      position: absolute;
+      bottom: 35px;
+      left: 8vw;
       font-family: "DM Mono", monospace;
       font-size: 10px;
-      letter-spacing: 2px;
-      color: #806e67;
-      margin-bottom: 45px;
+      color: #756862;
+      letter-spacing: 1px;
     }
-
-    .letter h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 43px;
-      font-weight: 500;
-      margin-bottom: 38px;
-    }
-
-    .letter-text {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 23px;
-      line-height: 1.6;
-      color: #e4dbd1;
-    }
-
-    .letter-text p {
-      margin-bottom: 27px;
-    }
-
-    .heart {
-      color: #8e4d4b;
-    }
-
-    /* photos */
 
     .photo-section {
-      padding: 70px 18px;
-      display: flex;
-      justify-content: center;
+      padding: 80px 7vw;
     }
 
-    .photo-wrap {
-      width: min(90vw, 650px);
-    }
-
-    .photo-wrap img {
+    .photo {
       width: 100%;
-      height: auto;
+      max-width: 850px;
+      margin: 0 auto 130px;
+      position: relative;
+    }
+
+    .photo img {
+      width: 100%;
       display: block;
       object-fit: cover;
       filter: saturate(0.82) contrast(0.95);
     }
 
-    .caption {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 13px;
-      padding: 0 4px;
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      color: #74635e;
-      text-transform: uppercase;
-    }
-
     .tilt-left {
-      transform: rotate(-1.2deg);
+      transform: rotate(-1.4deg);
     }
 
     .tilt-right {
-      transform: rotate(1deg);
+      transform: rotate(1.2deg);
     }
 
-    .tilt-small {
-      transform: rotate(-0.5deg);
-    }
-
-    /* little divider */
-
-    .divider {
-      text-align: center;
-      padding: 70px 0;
-      color: #594a46;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-    }
-
-    /* gallery */
-
-    .gallery {
-      padding: 90px 18px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .gallery-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .gallery-title span {
+    .caption {
       font-family: "DM Mono", monospace;
-      color: #806e67;
       font-size: 9px;
-      letter-spacing: 3px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+      color: #756862;
+      margin-top: 18px;
+      text-align: center;
     }
 
-    .gallery-title h2 {
+    .message {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 100px 8vw 140px;
+    }
+
+    .message-label {
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #9d8980;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+
+    .message h2 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 48px;
-      font-weight: 500;
-      margin-top: 10px;
+      font-weight: 400;
+      font-size: clamp(42px, 9vw, 76px);
+      line-height: 0.95;
+      margin-bottom: 55px;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+    .message p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      line-height: 1.55;
+      color: #d5cbc1;
+      margin-bottom: 27px;
     }
 
-    .gallery-grid img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      filter: saturate(0.8);
+    .highlight {
+      color: #eee7dc;
+      font-style: italic;
     }
-
-    .gallery-grid img:nth-child(2) {
-      margin-top: 35px;
-    }
-
-    .gallery-grid img:nth-child(3) {
-      margin-top: -20px;
-    }
-
-    .gallery-grid img:nth-child(4) {
-      margin-top: 20px;
-    }
-
-    /* music */
 
     .music {
-      padding: 120px 22px;
+      padding: 80px 8vw 120px;
       text-align: center;
     }
 
-    .music-small {
+    .music-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .music-sub {
       font-family: "DM Mono", monospace;
-      color: #806e67;
       font-size: 9px;
-      letter-spacing: 3px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-    }
-
-    .music h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 50px;
-      font-weight: 500;
-      margin: 12px 0 35px;
-    }
-
-    .music p {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
-      font-style: italic;
-      color: #aa9790;
-      margin-bottom: 30px;
+      color: #756862;
+      margin-bottom: 35px;
     }
 
     .spotify {
-      width: min(100%, 500px);
+      max-width: 650px;
       margin: auto;
       border-radius: 12px;
       overflow: hidden;
     }
 
-    .spotify iframe {
+    iframe {
       width: 100%;
       height: 152px;
       border: 0;
-      border-radius: 12px;
     }
-
-    /* final */
 
     .final {
       min-height: 100vh;
-      padding: 80px 18px 50px;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .final img {
-      width: min(92vw, 700px);
-      max-height: 75vh;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      display: block;
-      filter: saturate(0.8) contrast(0.95);
-      margin-bottom: 55px;
+      filter: brightness(0.55) saturate(0.75);
     }
 
-    .final h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(40px, 10vw, 75px);
-      font-weight: 500;
-      line-height: 0.95;
+    .final-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 6, 6, 0.38);
     }
 
-    .final p {
-      margin-top: 25px;
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      color: #806e67;
-      text-transform: uppercase;
-    }
-
-    footer {
+    .final-text {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 50px 20px 70px;
+      padding: 30px;
+    }
+
+    .final-text h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(55px, 12vw, 120px);
+      font-weight: 400;
+      line-height: 0.85;
+      letter-spacing: -3px;
+    }
+
+    .final-text p {
+      margin-top: 30px;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #d0c1b7;
+    }
+
+    .footer {
+      padding: 30px;
+      text-align: center;
       font-family: "DM Mono", monospace;
       font-size: 8px;
-      letter-spacing: 2px;
-      color: #544844;
+      letter-spacing: 1px;
+      color: #514744;
     }
-
-    /* animations */
 
     .fade {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeUp 1.2s ease forwards;
+      animation: fadeIn 1.5s ease both;
     }
 
-    @keyframes fadeUp {
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -348,75 +269,110 @@
     }
 
     @media (max-width: 600px) {
-
-      .letter {
-        padding: 90px 25px;
+      .hero {
+        padding: 30px 7vw;
       }
 
-      .letter h2 {
-        font-size: 38px;
+      .photo-section {
+        padding: 60px 7vw;
       }
 
-      .letter-text {
-        font-size: 21px;
+      .photo {
+        margin-bottom: 90px;
       }
 
-      .gallery-grid {
-        gap: 10px;
+      .message {
+        padding: 70px 8vw 100px;
       }
 
-      .gallery-title h2 {
-        font-size: 42px;
+      .message p {
+        font-size: 20px;
       }
 
+      .music {
+        padding: 60px 7vw 90px;
+      }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
+  <main class="page">
 
-  <section class="hero fade">
+    <!-- HERO -->
+    <section class="hero fade">
 
-    <div class="tiny">
-      boyfriend's day · 2026
-    </div>
+      <div class="tiny">
+        for my favourite person
+      </div>
 
-    <h1>for you.</h1>
+      <h1>for<br>you.</h1>
 
-    <p>a little something from your shreeya</p>
+      <div class="hero-sub">
+        a little something from<br>
+        your shreeya ♡
+      </div>
 
-    <div class="scroll">
-      scroll slowly
-      <span>↓</span>
-    </div>
+      <div class="date">
+        03 / 10 / 2026
+      </div>
 
-  </section>
+    </section>
 
 
-  <!-- LETTER -->
+    <!-- PHOTOS -->
+    <section class="photo-section">
 
-  <section class="letter fade">
+      <div class="photo tilt-left">
+        <img src="4834A51A-CC73-437B-A62B-AD92DA5AFBDA.jpeg" alt="us">
+        <div class="caption">my favourite view</div>
+      </div>
 
-    <div class="date">
-      03 · 10 · 2026
-    </div>
+      <div class="photo tilt-right">
+        <img src="4BD3B496-FA2D-4040-826F-2D61F5CF73B9.jpeg" alt="us">
+        <div class="caption">us being idiots ♡</div>
+      </div>
 
-    <h2>hieee babyyyu</h2>
+      <div class="photo tilt-left">
+        <img src="6FBC3DB7-D852-45F5-9175-8C4A4E15F2F4.jpeg" alt="us">
+        <div class="caption">just you & me</div>
+      </div>
 
-    <div class="letter-text">
+      <div class="photo tilt-right">
+        <img src="7271E472-5373-4492-90E1-1E86B0A67611.jpeg" alt="us">
+        <div class="caption">one of my favourite memories</div>
+      </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+    <section class="message">
+
+      <div class="message-label">
+        a little letter
+      </div>
+
+      <h2>
+        happy<br>
+        boyfriend's<br>
+        dayyy.
+      </h2>
 
       <p>
-        happy boyfriend’s dayyy my lovee
-        <span class="heart">❤️❤️❤️</span>
+        hieee babyyyu
+      </p>
+
+      <p>
+        happy boyfriend’s dayyy my lovee ❤️❤️❤️
       </p>
 
       <p>
         idk what to even write because i feel like no matter how much i say,
         it’ll never actually be enough to explain how much you mean to me.
-        but i still wanted to make something for you because you deserve to know how loved you are.
+        but i still wanted to make something for you because you deserve to
+        know how loved you are.
       </p>
 
       <p>
@@ -426,109 +382,28 @@
         and just be with even when we’re doing absolutely nothing.
       </p>
 
-    </div>
-
-  </section>
-
-
-  <!-- PHOTO 1 -->
-
-  <section class="photo-section fade">
-
-    <div class="photo-wrap tilt-left">
-
-      <img
-        src="4834A51A-CC73-437B-A62B-AD92DA5AFBDA.jpeg"
-        alt="us"
-      >
-
-      <div class="caption">
-        <span>you + me</span>
-        <span>01</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="divider">♡</div>
-
-
-  <!-- LETTER CONTINUED -->
-
-  <section class="letter fade">
-
-    <div class="letter-text">
-
       <p>
-        i love so many little things about you that i don’t think you even realise.
-        your voice, your laugh, your stupid jokes, the way you talk, the way you are
-        with me literally just you. and sometimes i’ll randomly look at you or think
-        about you and be like “waittt that’s actually my boyfriend” 😭 and it makes me so happy.
+        i love so many little things about you that i don’t think you even
+        realise. your voice, your laugh, your stupid jokes, the way you talk,
+        the way you are with me literally just you.
       </p>
 
       <p>
-        we obviously have our stupid moments and we annoy each other and everything
-        isn’t always perfect, but i wouldn’t trade what we have for anything.
-        because at the end of the day, it’s still you. always you.
+        and sometimes i’ll randomly look at you or think about you and be like
+        <span class="highlight">“waittt that’s actually my boyfriend”</span>
+        😭 and it makes me so happy.
       </p>
 
-    </div>
+      <p>
+        we obviously have our stupid moments and we annoy each other and
+        everything isn’t always perfect, but i wouldn’t trade what we have
+        for anything.
+      </p>
 
-  </section>
-
-
-  <!-- PHOTO 2 -->
-
-  <section class="photo-section fade">
-
-    <div class="photo-wrap tilt-right">
-
-      <img
-        src="4BD3B496-FA2D-4040-826F-2D61F5CF73B9.jpeg"
-        alt="us"
-      >
-
-      <div class="caption">
-        <span>my favourite idiot</span>
-        <span>02</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PHOTO 3 -->
-
-  <section class="photo-section fade">
-
-    <div class="photo-wrap tilt-small">
-
-      <img
-        src="6FBC3DB7-D852-45F5-9175-8C4A4E15F2F4.jpeg"
-        alt="us"
-      >
-
-      <div class="caption">
-        <span>just us</span>
-        <span>03</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="divider">♡</div>
-
-
-  <!-- LETTER CONTINUED -->
-
-  <section class="letter fade">
-
-    <div class="letter-text">
+      <p>
+        because at the end of the day,
+        <span class="highlight">it’s still you. always you.</span>
+      </p>
 
       <p>
         thank you for being my person and for giving me so many memories that
@@ -536,115 +411,76 @@
       </p>
 
       <p>
-        happy boyfriend’s day baby
-        <span class="heart">❤️❤️❤️❤️</span>
+        happy boyfriend’s day baby ❤️❤️❤️❤️
       </p>
 
       <p>
         i love you so so so much. more than i can properly put into words.
       </p>
 
-    </div>
+      <p>
+        now come here i need my hug 🫵🏻😳
+      </p>
 
-  </section>
+    </section>
 
 
-  <!-- PHOTO 4 -->
+    <!-- MUSIC -->
+    <section class="music">
 
-  <section class="photo-section fade">
-
-    <div class="photo-wrap tilt-left">
-
-      <img
-        src="7271E472-5373-4492-90E1-1E86B0A67611.jpeg"
-        alt="us"
-      >
-
-      <div class="caption">
-        <span>another memory</span>
-        <span>04</span>
+      <div class="music-title">
+        this one sounds like you.
       </div>
 
-    </div>
+      <div class="music-sub">
+        press play ♡
+      </div>
 
-  </section>
+      <div class="spotify">
+
+        <iframe
+          src="https://open.spotify.com/embed/track/44KsnNC0GBekRDDq1nPrXg"
+          title="Lady Of Namek by Tory Lanez"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </section>
 
 
-  <!-- GALLERY -->
-
-  <section class="gallery fade">
-
-    <div class="gallery-title">
-
-      <span>little archive</span>
-
-      <h2>us, lately.</h2>
-
-    </div>
-
-    <div class="gallery-grid">
+    <!-- FINAL PHOTO -->
+    <section class="final">
 
       <img
         src="8F9F67F1-EB06-4280-97B9-917C032923C6.jpeg"
         alt="us"
       >
 
-      <img
-        src="7A9EAE69-17CC-4DB6-B554-62AFA2851B8D.jpeg"
-        alt="us"
-      >
+      <div class="final-overlay"></div>
 
+      <div class="final-text">
+
+        <h2>
+          it’s always<br>
+          going to be you.
+        </h2>
+
+        <p>
+          happy boyfriend’s day, my love ♡
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <div class="footer">
+      made with too much love by shreeya ♡
     </div>
 
-  </section>
-
-
-  <!-- MUSIC -->
-
-  <section class="music fade">
-
-    <div class="music-small">
-      this one feels like us
-    </div>
-
-    <h2>our song.</h2>
-
-    <p>Lady Of Namek — Tory Lanez</p>
-
-    <div class="spotify">
-
-      <iframe
-        src="https://open.spotify.com/embed/track/44KsnNC0GBekRDDq1nPrXg"
-        title="Lady Of Namek by Tory Lanez"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL -->
-
-  <section class="final fade">
-
-    <img
-      src="7A9EAE69-17CC-4DB6-B554-62AFA2851B8D.jpeg"
-      alt="us"
-    >
-
-    <h2>it’s always<br>going to be you.</h2>
-
-    <p>now come here i need my hug 🫵🏻😳</p>
-
-  </section>
-
-
-  <footer>
-    made with way too much love ♡
-  </footer>
-
+  </main>
 
 </body>
 </html>
