@@ -1,486 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>for my babyy ♡</title>
+<title>for my favourite person ♡</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+:root {
+  --black: #11100f;
+  --cream: #eee5d5;
+  --muted: #b9aa98;
+  --burgundy: #57272d;
+  --paper: #e8ddca;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
 
-    body {
-      background: #0d0b0b;
-      color: #eee7dc;
-      font-family: "DM Sans", sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.07;
-      z-index: 100;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-    }
+/* film grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: .09;
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      rgba(255,255,255,.15) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  background-size: 7px 7px;
+  mix-blend-mode: overlay;
+}
 
-    .page {
-      width: 100%;
-    }
+.page {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 22px;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 8vw;
-      position: relative;
-    }
+.page-inner {
+  width: min(500px, 100%);
+  position: relative;
+  z-index: 2;
+}
 
-    .tiny {
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #9d8980;
-      margin-bottom: 25px;
-    }
+/* tiny labels */
 
-    h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(70px, 18vw, 180px);
-      line-height: 0.78;
-      font-weight: 400;
-      letter-spacing: -5px;
-    }
+.eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-    .hero-sub {
-      margin-top: 35px;
-      max-width: 420px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-      line-height: 1.3;
-      color: #bcaea5;
-    }
+.date {
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .15em;
+  color: #897d70;
+  margin-top: 8px;
+}
 
-    .date {
-      position: absolute;
-      bottom: 35px;
-      left: 8vw;
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      color: #756862;
-      letter-spacing: 1px;
-    }
+/* INTRO */
 
-    .photo-section {
-      padding: 80px 7vw;
-    }
+.intro {
+  background:
+    linear-gradient(rgba(17,16,15,.58), rgba(17,16,15,.88)),
+    url("4834A51A-CC73-437B-A62B-AD92DA5AFBDA.jpeg") center/cover;
+}
 
-    .photo {
-      width: 100%;
-      max-width: 850px;
-      margin: 0 auto 130px;
-      position: relative;
-    }
+.intro-content {
+  text-align: center;
+  max-width: 390px;
+}
 
-    .photo img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      filter: saturate(0.82) contrast(0.95);
-    }
+.intro-content .eyebrow {
+  margin-bottom: 18px;
+}
 
-    .tilt-left {
-      transform: rotate(-1.4deg);
-    }
+.intro h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(58px, 16vw, 92px);
+  line-height: .78;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
 
-    .tilt-right {
-      transform: rotate(1.2deg);
-    }
+.intro h1 span {
+  display: block;
+  font-size: .42em;
+  letter-spacing: .03em;
+  margin-top: 20px;
+}
 
-    .caption {
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #756862;
-      margin-top: 18px;
-      text-align: center;
-    }
+.open-note {
+  margin-top: 55px;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: .7;
+  animation: breathe 2s ease-in-out infinite;
+}
 
-    .message {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 100px 8vw 140px;
-    }
+@keyframes breathe {
+  0%,100% { opacity: .35; }
+  50% { opacity: 1; }
+}
 
-    .message-label {
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: #9d8980;
-      text-transform: uppercase;
-      margin-bottom: 35px;
-    }
+/* ENVELOPE PAGES */
 
-    .message h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 400;
-      font-size: clamp(42px, 9vw, 76px);
-      line-height: 0.95;
-      margin-bottom: 55px;
-    }
+.letter-page {
+  background: var(--black);
+}
 
-    .message p {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
-      line-height: 1.55;
-      color: #d5cbc1;
-      margin-bottom: 27px;
-    }
+.envelope-wrap {
+  width: min(390px, 92vw);
+  position: relative;
+  padding-top: 35px;
+}
 
-    .highlight {
-      color: #eee7dc;
-      font-style: italic;
-    }
+.envelope {
+  height: 260px;
+  width: 100%;
+  position: relative;
+  perspective: 900px;
+  margin-bottom: 35px;
+}
 
-    .music {
-      padding: 80px 8vw 120px;
-      text-align: center;
-    }
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #392327;
+  border-radius: 2px;
+  box-shadow: 0 22px 55px rgba(0,0,0,.5);
+  overflow: hidden;
+}
 
-    .music-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.envelope-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgba(238,229,213,.08) 50%, transparent 50.5%),
+    linear-gradient(45deg, transparent 49.5%, rgba(238,229,213,.05) 50%, transparent 50.5%);
+}
 
-    .music-sub {
-      font-family: "DM Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #756862;
-      margin-bottom: 35px;
-    }
+.flap {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  background: #4b292e;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 1s cubic-bezier(.77,0,.18,1);
+}
 
-    .spotify {
-      max-width: 650px;
-      margin: auto;
-      border-radius: 12px;
-      overflow: hidden;
-    }
+.letter {
+  position: absolute;
+  z-index: 3;
+  left: 7%;
+  width: 86%;
+  height: 225px;
+  bottom: 0;
+  background: var(--paper);
+  color: var(--black);
+  padding: 16px;
+  transform: translateY(100%);
+  transition:
+    transform 3s cubic-bezier(.16,1,.3,1),
+    box-shadow 1s ease;
+  box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
 
-    iframe {
-      width: 100%;
-      height: 152px;
-      border: 0;
-    }
+.letter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .final {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
 
-    .final img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.55) saturate(0.75);
-    }
+.envelope.open .letter {
+  transform: translateY(-42%);
+  box-shadow: 0 28px 60px rgba(0,0,0,.55);
+}
 
-    .final-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(8, 6, 6, 0.38);
-    }
+/* once opened, keep the photo visible */
+.envelope.open {
+  margin-bottom: 120px;
+}
 
-    .final-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 30px;
-    }
+.page-copy {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 2.7s;
+}
 
-    .final-text h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(55px, 12vw, 120px);
-      font-weight: 400;
-      line-height: 0.85;
-      letter-spacing: -3px;
-    }
+.letter-page.opened .page-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .final-text p {
-      margin-top: 30px;
-      font-family: "DM Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #d0c1b7;
-    }
+.page-copy h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(37px, 10vw, 55px);
+  line-height: .95;
+  font-weight: 500;
+  margin: 13px 0 22px;
+}
 
-    .footer {
-      padding: 30px;
-      text-align: center;
-      font-family: "DM Mono", monospace;
-      font-size: 8px;
-      letter-spacing: 1px;
-      color: #514744;
-    }
+.page-copy p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  line-height: 1.32;
+  color: #d4c8b8;
+}
 
-    .fade {
-      animation: fadeIn 1.5s ease both;
-    }
+.page-copy .small {
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  line-height: 1.7;
+  letter-spacing: .08em;
+  color: #85796e;
+  margin-top: 24px;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
+.next {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 10px 0;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(238,229,213,.35);
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+/* PAGE 4 - TWO PHOTOS */
 
-    @media (max-width: 600px) {
-      .hero {
-        padding: 30px 7vw;
-      }
+.double-photo {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 
-      .photo-section {
-        padding: 60px 7vw;
-      }
+.double-photo img:first-child {
+  position: absolute;
+  inset: 0;
+}
 
-      .photo {
-        margin-bottom: 90px;
-      }
+.double-photo img:last-child {
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  object-fit: cover;
+  right: -4px;
+  bottom: -4px;
+  border: 8px solid var(--paper);
+  box-shadow: 0 12px 25px rgba(0,0,0,.3);
+  transform: rotate(4deg);
+}
 
-      .message {
-        padding: 70px 8vw 100px;
-      }
+/* FINAL */
 
-      .message p {
-        font-size: 20px;
-      }
+.final-page {
+  min-height: 100svh;
+  padding: 0;
+  background: #0b0a09;
+}
 
-      .music {
-        padding: 60px 7vw 90px;
-      }
-    }
-  </style>
+.final-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.final-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.67) contrast(1.05);
+}
+
+.final-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(10,9,8,.82) 0%,
+      rgba(10,9,8,.12) 55%,
+      rgba(10,9,8,.2) 100%
+    );
+}
+
+.final-content {
+  position: absolute;
+  z-index: 3;
+  bottom: 55px;
+  left: 25px;
+  right: 25px;
+}
+
+.final-content .eyebrow {
+  margin-bottom: 15px;
+}
+
+.final-content h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(42px, 11vw, 65px);
+  line-height: .9;
+  max-width: 400px;
+  letter-spacing: -.025em;
+}
+
+.final-content p {
+  margin-top: 18px;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .14em;
+  color: #c8bdad;
+  text-transform: uppercase;
+}
+
+/* spotify */
+
+.spotify {
+  position: fixed;
+  z-index: 80;
+  right: 14px;
+  bottom: 14px;
+  width: 230px;
+  height: 80px;
+  opacity: .92;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0,0,0,.35);
+}
+
+.spotify iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* mobile */
+
+@media (max-width: 600px) {
+  .spotify {
+    width: 205px;
+    height: 72px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .envelope {
+    height: 230px;
+  }
+
+  .letter {
+    height: 200px;
+  }
+
+  .envelope.open .letter {
+    transform: translateY(-45%);
+  }
+
+  .page-copy p {
+    font-size: 18px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <main class="page">
+<!-- OPENING -->
 
-    <!-- HERO -->
-    <section class="hero fade">
+<section class="page intro" id="start">
+  <div class="intro-content">
+    <div class="eyebrow">for my favourite person</div>
 
-      <div class="tiny">
-        for my favourite person
+    <h1>
+      happy
+      <span>boyfriend's day ♡</span>
+    </h1>
+
+    <div class="open-note">
+      touch to open
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 1 -->
+
+<section class="page letter-page" id="one">
+  <div class="page-inner">
+
+    <div class="envelope-wrap">
+
+      <div class="eyebrow">01 / for you</div>
+      <div class="date">20 forever</div>
+
+      <div class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter">
+          <img src="4834A51A-CC73-437B-A62B-AD92DA5AFBDA.jpeg" alt="us">
+        </div>
+
+        <div class="flap"></div>
+
       </div>
 
-      <h1>for<br>you.</h1>
+    </div>
 
-      <div class="hero-sub">
-        a little something from<br>
-        your shreeya ♡
-      </div>
+    <div class="page-copy">
 
-      <div class="date">
-        03 / 10 / 2026
-      </div>
+      <div class="eyebrow">my love</div>
 
-    </section>
-
-
-    <!-- PHOTOS -->
-    <section class="photo-section">
-
-      <div class="photo tilt-left">
-        <img src="4834A51A-CC73-437B-A62B-AD92DA5AFBDA.jpeg" alt="us">
-        <div class="caption">my favourite view</div>
-      </div>
-
-      <div class="photo tilt-right">
-        <img src="4BD3B496-FA2D-4040-826F-2D61F5CF73B9.jpeg" alt="us">
-        <div class="caption">us being idiots ♡</div>
-      </div>
-
-      <div class="photo tilt-left">
-        <img src="6FBC3DB7-D852-45F5-9175-8C4A4E15F2F4.jpeg" alt="us">
-        <div class="caption">just you & me</div>
-      </div>
-
-      <div class="photo tilt-right">
-        <img src="7271E472-5373-4492-90E1-1E86B0A67611.jpeg" alt="us">
-        <div class="caption">one of my favourite memories</div>
-      </div>
-
-    </section>
-
-
-    <!-- MESSAGE -->
-    <section class="message">
-
-      <div class="message-label">
-        a little letter
-      </div>
-
-      <h2>
-        happy<br>
-        boyfriend's<br>
-        dayyy.
-      </h2>
-
-      <p>
-        hieee babyyyu
-      </p>
+      <h2>hieee babyyyu</h2>
 
       <p>
         happy boyfriend’s dayyy my lovee ❤️❤️❤️
-      </p>
-
-      <p>
+        <br><br>
         idk what to even write because i feel like no matter how much i say,
         it’ll never actually be enough to explain how much you mean to me.
         but i still wanted to make something for you because you deserve to
         know how loved you are.
       </p>
 
+      <a class="next" href="#two">keep going →</a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page letter-page" id="two">
+  <div class="page-inner">
+
+    <div class="envelope-wrap">
+
+      <div class="eyebrow">02 / us</div>
+      <div class="date">somewhere between everything & nothing</div>
+
+      <div class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter">
+          <img src="4BD3B496-FA2D-4040-826F-2D61F5CF73B9.jpeg" alt="us">
+        </div>
+
+        <div class="flap"></div>
+
+      </div>
+
+    </div>
+
+    <div class="page-copy">
+
+      <div class="eyebrow">you became home</div>
+
+      <h2>my person.</h2>
+
       <p>
         you’ve become such a big part of my life and i genuinely don’t know
-        what i’d do without you now. you’re literally the person i wanna tell
-        everything to, annoy all the time, laugh with over the dumbest things
-        and just be with even when we’re doing absolutely nothing.
+        what i’d do without you now.
+        <br><br>
+        you’re literally the person i wanna tell everything to, annoy all
+        the time, laugh with over the dumbest things and just be with even
+        when we’re doing absolutely nothing.
       </p>
+
+      <a class="next" href="#three">next →</a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page letter-page" id="three">
+  <div class="page-inner">
+
+    <div class="envelope-wrap">
+
+      <div class="eyebrow">03 / little things</div>
+      <div class="date">things i notice</div>
+
+      <div class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter">
+          <img src="6FBC3DB7-D852-45F5-9175-8C4A4E15F2F4.jpeg" alt="you">
+        </div>
+
+        <div class="flap"></div>
+
+      </div>
+
+    </div>
+
+    <div class="page-copy">
+
+      <div class="eyebrow">just you</div>
+
+      <h2>all the little things.</h2>
 
       <p>
         i love so many little things about you that i don’t think you even
-        realise. your voice, your laugh, your stupid jokes, the way you talk,
-        the way you are with me literally just you.
+        realise.
+        <br><br>
+        your voice, your laugh, your stupid jokes, the way you talk, the way
+        you are with me literally just you.
+        <br><br>
+        and sometimes i’ll randomly look at you or think about you and be like
+        “waittt that’s actually my boyfriend” 😭 and it makes me so happy.
       </p>
 
-      <p>
-        and sometimes i’ll randomly look at you or think about you and be like
-        <span class="highlight">“waittt that’s actually my boyfriend”</span>
-        😭 and it makes me so happy.
-      </p>
+      <a class="next" href="#four">keep going →</a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page letter-page" id="four">
+  <div class="page-inner">
+
+    <div class="envelope-wrap">
+
+      <div class="eyebrow">04 / always</div>
+      <div class="date">even when we're annoying</div>
+
+      <div class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter">
+
+          <div class="double-photo">
+            <img src="7271E472-5373-4492-90E1-1E86B0A67611.jpeg" alt="us">
+            <img src="7A9EAE69-17CC-4DB6-B554-62AFA2851B8D.jpeg" alt="another us">
+          </div>
+
+        </div>
+
+        <div class="flap"></div>
+
+      </div>
+
+    </div>
+
+    <div class="page-copy">
+
+      <div class="eyebrow">at the end of the day</div>
+
+      <h2>it’s still you.</h2>
 
       <p>
         we obviously have our stupid moments and we annoy each other and
         everything isn’t always perfect, but i wouldn’t trade what we have
         for anything.
-      </p>
-
-      <p>
-        because at the end of the day,
-        <span class="highlight">it’s still you. always you.</span>
-      </p>
-
-      <p>
+        <br><br>
+        because at the end of the day, it’s still you. always you.
+        <br><br>
         thank you for being my person and for giving me so many memories that
         i’ll always keep close to my heart. i hope we make sooo many more.
-      </p>
-
-      <p>
+        <br><br>
         happy boyfriend’s day baby ❤️❤️❤️❤️
-      </p>
-
-      <p>
+        <br>
         i love you so so so much. more than i can properly put into words.
-      </p>
-
-      <p>
+        <br><br>
         now come here i need my hug 🫵🏻😳
       </p>
 
-    </section>
+      <a class="next" href="#final">one last thing →</a>
 
-
-    <!-- MUSIC -->
-    <section class="music">
-
-      <div class="music-title">
-        this one sounds like you.
-      </div>
-
-      <div class="music-sub">
-        press play ♡
-      </div>
-
-      <div class="spotify">
-
-        <iframe
-          src="https://open.spotify.com/embed/track/44KsnNC0GBekRDDq1nPrXg"
-          title="Lady Of Namek by Tory Lanez"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-
-      </div>
-
-    </section>
-
-
-    <!-- FINAL PHOTO -->
-    <section class="final">
-
-      <img
-        src="8F9F67F1-EB06-4280-97B9-917C032923C6.jpeg"
-        alt="us"
-      >
-
-      <div class="final-overlay"></div>
-
-      <div class="final-text">
-
-        <h2>
-          it’s always<br>
-          going to be you.
-        </h2>
-
-        <p>
-          happy boyfriend’s day, my love ♡
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <div class="footer">
-      made with too much love by shreeya ♡
     </div>
+  </div>
+</section>
 
-  </main>
+
+<!-- FINAL -->
+
+<section class="page final-page" id="final">
+
+  <div class="final-photo">
+    <img src="8F9F67F1-EB06-4280-97B9-917C032923C6.jpeg" alt="always you">
+    <div class="final-overlay"></div>
+  </div>
+
+  <div class="final-content">
+
+    <div class="eyebrow">and if you ever forget</div>
+
+    <h2>it’s always going to be you.</h2>
+
+    <p>happy boyfriend’s day, baby ♡</p>
+
+  </div>
+
+</section>
+
+
+<!-- SPOTIFY -->
+
+<div class="spotify">
+  <iframe
+    src="https://open.spotify.com/embed/track/44KsnNC0GBekRDDq1nPrXG?utm_source=generator"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+
+
+<script>
+const pages = document.querySelectorAll(".letter-page");
+
+function openPage(page) {
+  const envelope = page.querySelector(".envelope");
+
+  if (!envelope) return;
+
+  envelope.classList.add("open");
+  page.classList.add("opened");
+}
+
+/* automatically open each envelope when its page enters the screen */
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
+        openPage(entry.target);
+      }
+    });
+  },
+  {
+    threshold: [0.55]
+  }
+);
+
+pages.forEach(page => observer.observe(page));
+
+/* first page opens when the user touches the intro */
+
+document.querySelector(".intro").addEventListener("click", () => {
+  document.querySelector("#one").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+</script>
 
 </body>
 </html>
