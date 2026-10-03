@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>for arhan ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0c0a0a;
+    color: #eee8df;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+/* film grain */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.055;
+    z-index: 100;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* general */
+
+section {
+    position: relative;
+    min-height: 100vh;
+    padding: 8vw;
+}
+
+.small {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9e9187;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* opening */
+
+.hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12vw;
+}
+
+.hero .small {
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(75px, 17vw, 190px);
+    font-weight: 300;
+    line-height: 0.78;
+    letter-spacing: -0.05em;
+}
+
+.hero h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(25px, 5vw, 55px);
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 28px;
+    color: #b8aaa0;
+}
+
+.open {
+    margin-top: 65px;
+    width: fit-content;
+    border-bottom: 1px solid #76675e;
+    padding-bottom: 8px;
+    color: #eee8df;
+    text-decoration: none;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* letter */
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-inner {
+    width: min(850px, 100%);
+}
+
+.date {
+    margin-bottom: 45px;
+}
+
+.letter h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 0.95;
+    margin-bottom: 55px;
+}
+
+.message {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(21px, 3vw, 29px);
+    line-height: 1.45;
+    color: #d8d0c8;
+}
+
+.message p {
+    margin-bottom: 25px;
+}
+
+.message .ending {
+    margin-top: 50px;
+    font-style: italic;
+}
+
+/* photos */
+
+.photo-section {
+    padding: 12vw 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-wrap {
+    width: min(760px, 90%);
+    position: relative;
+}
+
+.photo-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: saturate(0.75) contrast(0.96);
+}
+
+.caption {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: #82766e;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* individual photo moods */
+
+.photo-one .photo-wrap {
+    transform: rotate(-1.2deg);
+}
+
+.photo-two .photo-wrap {
+    width: min(600px, 82%);
+    transform: rotate(1.4deg);
+}
+
+.photo-three .photo-wrap {
+    width: min(680px, 88%);
+    transform: rotate(-0.7deg);
+}
+
+.photo-four .photo-wrap {
+    width: min(560px, 80%);
+    transform: rotate(1.1deg);
+}
+
+.photo-five .photo-wrap {
+    width: min(720px, 90%);
+    transform: rotate(-1deg);
+}
+
+.photo-six .photo-wrap {
+    width: min(650px, 86%);
+    transform: rotate(0.8deg);
+}
+
+/* music */
+
+.music {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.music-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 8vw, 90px);
+    font-weight: 300;
+    font-style: italic;
+    margin: 25px 0 35px;
+}
+
+.song {
+    display: inline-block;
+    text-decoration: none;
+    color: #eee8df;
+    border: 1px solid #554943;
+    padding: 15px 25px;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.song:hover {
+    background: #eee8df;
+    color: #0c0a0a;
+}
+
+/* final */
+
+.final {
+    padding: 5vw;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.final img {
+    width: min(900px, 92vw);
+    max-height: 78vh;
+    object-fit: cover;
+    filter: saturate(0.7);
+}
+
+.final-text {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.final-text h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: clamp(45px, 8vw, 90px);
+    font-style: italic;
+}
+
+.final-text p {
+    margin-top: 15px;
+}
+
+/* footer */
+
+footer {
+    padding: 45px 8vw 65px;
+    text-align: center;
+}
+
+footer p {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    color: #675b55;
+    letter-spacing: 0.13em;
+}
+
+/* mobile */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 15vw 7vw;
+    }
+
+    .hero {
+        padding: 15vw 9vw;
+    }
+
+    .hero h1 {
+        font-size: 100px;
+    }
+
+    .message {
+        font-size: 22px;
+    }
+
+    .photo-wrap {
+        width: 94% !important;
+    }
+
+    .caption {
+        font-size: 8px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- OPENING -->
+
+<section class="hero">
+
+    <div class="small">for my favourite person ♡</div>
+
+    <h1>for you.</h1>
+
+    <h2>a little something from your shreeya</h2>
+
+    <a class="open" href="#letter">
+        ↓ open this
+    </a>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section class="letter" id="letter">
+
+    <div class="letter-inner fade">
+
+        <div class="small date">
+            03 / 10 / 2026
+        </div>
+
+        <h2>
+            hieee babyyyu
+        </h2>
+
+        <div class="message">
+
+            <p>
+                happy boyfriend’s dayyy my lovee ❤️❤️❤️
+            </p>
+
+            <p>
+                idk what to even write because i feel like no matter how much i say, it’ll never actually be enough to explain how much you mean to me. but i still wanted to make something for you because you deserve to know how loved you are.
+            </p>
+
+            <p>
+                you’ve become such a big part of my life and i genuinely don’t know what i’d do without you now. you’re literally the person i wanna tell everything to, annoy all the time, laugh with over the dumbest things and just be with even when we’re doing absolutely nothing.
+            </p>
+
+            <p>
+                i love so many little things about you that i don’t think you even realise. your voice, your laugh, your stupid jokes, the way you talk, the way you are with me literally just you. and sometimes i’ll randomly look at you or think about you and be like “waittt that’s actually my boyfriend” 😭 and it makes me so happy.
+            </p>
+
+            <p>
+                we obviously have our stupid moments and we annoy each other and everything isn’t always perfect, but i wouldn’t trade what we have for anything. because at the end of the day, it’s still you. always you.
+            </p>
+
+            <p>
+                thank you for being my person and for giving me so many memories that i’ll always keep close to my heart. i hope we make sooo many more.
+            </p>
+
+            <p>
+                happy boyfriend’s day baby ❤️❤️❤️❤️
+                <br>
+                i love you so so so much. more than i can properly put into words.
+            </p>
+
+            <p class="ending">
+                now come here i need my hug 🫵🏻😳
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 1 -->
+
+<section class="photo-section photo-one">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_0064.jpeg" alt="us">
+
+        <div class="caption">
+            <span>us</span>
+            <span>01</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 2 -->
+
+<section class="photo-section photo-two">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_9946.jpeg" alt="our memory">
+
+        <div class="caption">
+            <span>my favourite kind of chaos</span>
+            <span>02</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 3 -->
+
+<section class="photo-section photo-three">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_8706.jpeg" alt="us together">
+
+        <div class="caption">
+            <span>just you & me</span>
+            <span>03</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 4 -->
+
+<section class="photo-section photo-four">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_8031.jpeg" alt="you">
+
+        <div class="caption">
+            <span>my boy</span>
+            <span>04</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 5 -->
+
+<section class="photo-section photo-five">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_8545(2).jpeg" alt="our memory">
+
+        <div class="caption">
+            <span>one of my favourite memories</span>
+            <span>05</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO 6 -->
+
+<section class="photo-section photo-six">
+
+    <div class="photo-wrap fade">
+
+        <img src="IMG_7889.jpeg" alt="us">
+
+        <div class="caption">
+            <span>always us</span>
+            <span>06</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SONG -->
+
+<section class="music">
+
+    <div class="music-inner fade">
+
+        <div class="small">
+            soundtrack for us
+        </div>
+
+        <div class="music-title">
+            Lady Of Namek
+        </div>
+
+        <a
+            class="song"
+            href="https://open.spotify.com/track/44KsnNC0GBekRDDq1nPrXg"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ♫ play our song
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL PHOTO -->
+
+<section class="final">
+
+    <img
+        class="fade"
+        src="IMG_8545(2).jpeg"
+        alt="our favourite memory"
+    >
+
+    <div class="final-text fade">
+
+        <h2>
+            it’s always going to be you.
+        </h2>
+
+        <p class="small">
+            love, shreeya ♡
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        made with too much love for arhan
+    </p>
+
+</footer>
+
+
+<script>
+
+const fades = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+fades.forEach(element => observer.observe(element));
+
+</script>
+
+</body>
+</html>
